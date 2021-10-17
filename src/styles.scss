@@ -10,8 +10,8 @@ body{
 
 ul{
 	list-style-type:none ;
-	margin:  0 0 2em 0;
-	padding:  0;
+	margin:0 0 2em 0;
+	padding:0;
 }
 
 ul li {
@@ -21,6 +21,10 @@ ul li {
 
 ul li a{
 	font-size:  1.5em;
+}
+a {
+	color: #fff;
+	text-decoration: none;
 }
 
 
