@@ -19,10 +19,10 @@ export class HomeComponent implements OnInit {
   pass: string = ""
   token: string = ""
 
-  goals = [];
+  goals : Array<any> = [];
 
-  loading: boolean = false;
-  private querySubscription: Subscription;
+  loading: boolean | undefined;
+  private querySubscription?: Subscription;
 
 
   constructor(private _data: DataService, 
@@ -73,8 +73,9 @@ export class HomeComponent implements OnInit {
   addItem() {
 //    this.goals.push(this.goalText);
 
+  if(this.token){
 
-    var mytoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkc29mdCIsImV4cCI6MTYzNDc5NTgwMiwib3JpZ0lhdCI6MTYzNDc5NTUwMn0._6tOsFeS7Li59toIpxyD1rDNi_HXnjvcDPBjoKXNcUk";
+    var mytoken = this.token;
     //this.storageService.getSession("token");
     alert(this.goalText);
 
@@ -85,12 +86,15 @@ export class HomeComponent implements OnInit {
        console.log('there was an error sending the query', error);
     });
   
-   
-
-
     this.goalText = "";
     this.itemCount = this.goals.length;
     this._data.changeGoal(this.goals);
+
+    }
+
+    else{
+      alert('Unknown token, not authorized');
+    }
   }
 
   removeItem(i:number) {

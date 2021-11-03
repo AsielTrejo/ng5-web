@@ -53,7 +53,7 @@ export class GraphqlProductsService  {
 
   loading: boolean = false;
   posts: any;
-  private querySubscription: Subscription;
+  private querySubscription?: Subscription;
 
   constructor(private apollo: Apollo) {}
 
